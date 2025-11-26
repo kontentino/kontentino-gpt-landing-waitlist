@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">1. Introduction</h2>
             <p className="text-foreground mb-4">
-              Welcome to Social Media Planner by Kontentino ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.
+              Welcome to Social Media Planner by Kontentino (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.
             </p>
           </section>
 
@@ -111,7 +111,7 @@ export default function PrivacyPolicy() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">10. Changes to This Policy</h2>
             <p className="text-foreground mb-4">
-              We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.
+              We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &quot;Last updated&quot; date.
             </p>
           </section>
 

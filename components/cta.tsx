@@ -83,7 +83,7 @@ export default function CTA({
                 iconPlacement="right"
                 size="lg"
                 className="bg-white px-8 py-6 text-lg text-primary hover:bg-white/90">
-                Join the waitlist — it's free
+                Join the waitlist — it&apos;s free
               </EnhancedButton>
             }
             email={email}

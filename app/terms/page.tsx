@@ -21,7 +21,7 @@ export default function TermsOfService() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">1. Acceptance of Terms</h2>
             <p className="text-foreground mb-4">
-              By accessing and using the Social Media Planner waitlist website ("Service"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms of Service, please do not use our Service.
+              By accessing and using the Social Media Planner waitlist website (&quot;Service&quot;), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms of Service, please do not use our Service.
             </p>
           </section>
 
@@ -104,7 +104,7 @@ export default function TermsOfService() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">9. Disclaimer of Warranties</h2>
             <p className="text-foreground mb-4">
-              THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.
+              THE SERVICE IS PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.
             </p>
           </section>
 
@@ -139,7 +139,7 @@ export default function TermsOfService() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-foreground mb-4">14. Changes to Terms</h2>
             <p className="text-foreground mb-4">
-              We reserve the right to update or change these Terms at any time. We will notify you of any changes by posting the new Terms on this page and updating the "Last updated" date. Your continued use of the Service after such changes constitutes acceptance of the new Terms.
+              We reserve the right to update or change these Terms at any time. We will notify you of any changes by posting the new Terms on this page and updating the &quot;Last updated&quot; date. Your continued use of the Service after such changes constitutes acceptance of the new Terms.
             </p>
           </section>
 
