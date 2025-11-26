@@ -53,7 +53,7 @@ export async function POST(request: Request) {
     // Fetch custom fields from Pipedrive automatically
     const [personFields, leadFields] = await Promise.all([
       getCustomFields(apiToken, 'person'),
-      getCustomFields(apiToken, 'lead'),
+      getCustomFields(apiToken, 'deal'),
     ]);
 
     // Look for LinkedIn field on Person (try common variations)
@@ -65,7 +65,7 @@ export async function POST(request: Request) {
     const personPayload: any = {
       name: body?.email || "Waitlist Signup",
       email: body?.email ? [body.email] : [],
-      visible_to: "3", // Visible to entire company
+      visible_to: 3, // Visible to entire company
     };
 
     // Add LinkedIn as custom field if field key is configured
@@ -116,7 +116,7 @@ export async function POST(request: Request) {
     const leadPayload: any = {
       title: leadTitle,
       person_id: personId,
-      visible_to: "3",
+      visible_to: 3,
     };
 
     // Add custom fields if configured
