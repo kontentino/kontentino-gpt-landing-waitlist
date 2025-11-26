@@ -82,7 +82,7 @@ export default function JoinWaitlistDialog({
             {loading ? "Joining..." : "Join now"}
           </EnhancedButton>
           <p className="text-center text-xs text-muted-foreground">
-            We'll start sending invites in small waves to keep feedback manageable.
+            We&apos;ll start sending invites in small waves to keep feedback manageable.
           </p>
         </div>
       </DialogContent>
