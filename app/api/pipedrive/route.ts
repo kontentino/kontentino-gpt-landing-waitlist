@@ -50,11 +50,8 @@ export async function POST(request: Request) {
     const cohortTag = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
     const roleTag = (body?.role || "Other").toLowerCase().replace(/\s+/g, "-");
 
-    // Fetch custom fields from Pipedrive automatically
-    const [personFields, leadFields] = await Promise.all([
-      getCustomFields(apiToken, 'person'),
-      getCustomFields(apiToken, 'deal'),
-    ]);
+    // Fetch custom fields from Pipedrive for Person (LinkedIn field)
+    const personFields = await getCustomFields(apiToken, 'person');
 
     // Look for LinkedIn field on Person (try common variations)
     const linkedinFieldKey = personFields?.['linkedin'] ||
@@ -65,7 +62,7 @@ export async function POST(request: Request) {
     const personPayload: any = {
       name: body?.email || "Waitlist Signup",
       email: body?.email ? [body.email] : [],
-      visible_to: 3, // Visible to entire company
+      visible_to: "3", // Visible to entire company (must be string)
     };
 
     // Add LinkedIn as custom field if field key is configured
@@ -95,49 +92,18 @@ export async function POST(request: Request) {
       throw new Error("Person created but no ID returned");
     }
 
-    // Step 2: Create Lead linked to Person with custom fields
+    // Step 2: Create Lead linked to Person
     const leadTitle = body?.role
       ? `${body.role} - ${body.email}`
       : `Waitlist - ${body.email}`;
 
-    // Look for custom fields on Lead (try common variations)
-    const roleFieldKey = leadFields?.['role'] ||
-                        leadFields?.['user role'] ||
-                        leadFields?.['contact role'];
-    const cohortFieldKey = leadFields?.['cohort'] ||
-                          leadFields?.['signup cohort'] ||
-                          leadFields?.['month'];
-    const sourceFieldKey = leadFields?.['source'] ||
-                          leadFields?.['lead source'] ||
-                          leadFields?.['signup source'];
-    const tagsFieldKey = leadFields?.['tags'] ||
-                        leadFields?.['labels'];
-
+    // Only use standard Pipedrive Lead fields to avoid "body is invalid" errors
+    // Custom field data is captured in the note instead
     const leadPayload: any = {
       title: leadTitle,
       person_id: personId,
-      visible_to: 3,
+      visible_to: "3",
     };
-
-    // Add custom fields if configured
-    if (roleFieldKey && body?.role) {
-      leadPayload[roleFieldKey] = body.role;
-    }
-    if (cohortFieldKey) {
-      leadPayload[cohortFieldKey] = cohortTag;
-    }
-    if (sourceFieldKey) {
-      leadPayload[sourceFieldKey] = "Landing Page - Social Media Planner";
-    }
-    if (tagsFieldKey) {
-      const tags = [
-        "landing-page-waitlist",
-        "social-media-planner-beta",
-        `role-${roleTag}`,
-        body?.linkedin ? "has-linkedin-profile" : null,
-      ].filter(Boolean).join(", ");
-      leadPayload[tagsFieldKey] = tags;
-    }
 
     const leadResponse = await fetch(`${PIPEDRIVE_API_BASE}/leads?api_token=${apiToken}`, {
       method: "POST",
