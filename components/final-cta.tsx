@@ -42,7 +42,7 @@ export default function FinalCTA({
 
       <div>
         <p className="text-center text-sm text-muted-foreground">
-          Powered by Kontentino — trusted by 4,000+ teams worldwide
+          Powered by Kontentino — trusted by 6,000+ teams worldwide
         </p>
       </div>
 
@@ -88,6 +88,9 @@ export default function FinalCTA({
         </div>
         <div className="mt-2 text-center text-xs text-muted-foreground">
           <p>We&apos;ll start sending invites in small waves to keep feedback manageable.</p>
+        </div>
+        <div className="text-center text-xs text-muted-foreground/80">
+          <p>No spam. We only send early access updates.</p>
         </div>
       </div>
     </div>

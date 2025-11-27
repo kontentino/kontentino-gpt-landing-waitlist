@@ -27,26 +27,20 @@ export default function Form({
   loading,
 }: FormProps) {
   return (
-    <div className="flex w-full flex-col gap-4 rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm p-6 shadow-2xl">
-      <div className="text-center mb-2">
-        <h3 className="text-2xl font-bold text-white mb-1">Join the waitlist</h3>
-        <p className="text-sm text-white/70">Be among the first to try it</p>
-      </div>
+    <div className="flex w-full flex-col gap-4 rounded-xl border-2 border-border bg-card p-6 shadow-lg">
       <div>
         <Input
           type="email"
           placeholder="Your Email Address*"
           value={email}
           onChange={handleEmailChange}
-          className="bg-white border-white/20"
           required
         />
       </div>
       <div>
         <Select
           value={role}
-          onChange={handleRoleChange}
-          className="bg-white border-white/20">
+          onChange={handleRoleChange}>
           <option value="">Select Your Role (optional)</option>
           <option value="Social media pro">Social media pro</option>
           <option value="Agency">Agency</option>
@@ -60,7 +54,6 @@ export default function Form({
           placeholder="LinkedIn profile (optional)"
           value={linkedin}
           onChange={handleLinkedInChange}
-          className="bg-white border-white/20"
         />
       </div>
       <div>
@@ -69,13 +62,16 @@ export default function Form({
           Icon={FaArrowRightLong}
           onClick={handleSubmit}
           iconPlacement="right"
-          className="mt-2 w-full bg-white text-gray-900 hover:bg-white/90"
+          className="mt-2 w-full bg-foreground text-background hover:bg-foreground/90"
           disabled={loading}>
-          {loading ? "Joining..." : "Join now"}
+          {loading ? "Joining..." : "Join now — it's free"}
         </EnhancedButton>
       </div>
-      <div className="mt-2 text-center text-xs text-white/70">
+      <div className="mt-2 text-center text-xs text-muted-foreground">
         <p>We&apos;ll start sending invites in small waves to keep feedback manageable.</p>
+      </div>
+      <div className="text-center text-xs text-muted-foreground/80">
+        <p>No spam. We only send early access updates.</p>
       </div>
     </div>
   );

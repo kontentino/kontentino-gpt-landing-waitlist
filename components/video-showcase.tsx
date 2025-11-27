@@ -16,8 +16,8 @@ export default function VideoShowcase() {
 
       {/* Video container */}
       <div className="w-full">
-        <div className="w-full rounded-xl border-2 border-primary/20 bg-black p-3 shadow-xl">
-          <div className="relative w-full bg-black rounded-lg overflow-hidden" style={{ aspectRatio: '1920 / 1004' }}>
+        <div className="w-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm p-3 shadow-xl">
+          <div className="relative w-full bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg overflow-hidden" style={{ aspectRatio: '1920 / 1004' }}>
             <video
               className="w-full h-full rounded-lg"
               autoPlay

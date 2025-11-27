@@ -6,9 +6,12 @@ import * as postmark from "postmark";
 import { NextRequest, NextResponse } from "next/server";
 import Redis from "ioredis";
 
-const postmarkClient = new postmark.ServerClient(
-  process.env.POSTMARK_API_KEY || "",
-);
+// Initialize Postmark client lazily to avoid build-time errors
+function getPostmarkClient() {
+  return new postmark.ServerClient(
+    process.env.POSTMARK_API_KEY || "dummy-key-for-build",
+  );
+}
 
 // Railway Redis setup for rate limiting
 let redis: Redis | null = null;
@@ -75,6 +78,7 @@ export async function POST(request: NextRequest) {
     );
 
     console.log(`📤 Sending email to: ${email}`);
+    const postmarkClient = getPostmarkClient();
     const response = await postmarkClient.sendEmail({
       From: process.env.POSTMARK_FROM_EMAIL || "noreply@kontentino.com",
       To: email,

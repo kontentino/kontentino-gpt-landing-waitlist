@@ -6,9 +6,9 @@ import AnimatedShinyText from "@/components/ui/shimmer-text";
 import { EnhancedButton } from "@/components/ui/enhanced-btn";
 import { Button } from "@/components/ui/button";
 import JoinWaitlistDialog from "@/components/join-waitlist-dialog";
+import Image from "next/image";
 
 interface CTAProps {
-  formComponent: React.ReactNode;
   email: string;
   role: string;
   linkedin: string;
@@ -20,7 +20,6 @@ interface CTAProps {
 }
 
 export default function CTA({
-  formComponent,
   email,
   role,
   linkedin,
@@ -51,16 +50,9 @@ export default function CTA({
       {/* LEFT side - Text */}
       <div className="flex flex-col justify-center gap-6">
         <div>
-          <div className="flex items-center justify-center lg:justify-start">
-            <div className="flex w-fit items-center justify-center rounded-full border border-white/20 bg-white/10 text-center backdrop-blur-sm">
-              <AnimatedShinyText className="px-4 py-1 text-sm text-white/90">
-                <span>Social Media Planner for ChatGPT by Kontentino</span>
-              </AnimatedShinyText>
-            </div>
-          </div>
-        </div>
-
-        <div>
+          <p className="mb-4 text-balance text-center text-lg font-medium text-secondary sm:text-xl lg:text-left">
+            Your ideas live in chat — but your plan doesn&apos;t
+          </p>
           <h1 className="text-balance text-center font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-left lg:text-6xl">
             Bring your whole social media workflow inside ChatGPT.
           </h1>
@@ -117,21 +109,45 @@ export default function CTA({
 
         <div className="mt-4">
           <p className="text-center text-sm text-white/70 lg:text-left">
-            Powered by Kontentino — trusted by 4,000+ teams
+            Powered by Kontentino — trusted by 6,000+ teams
           </p>
         </div>
       </div>
 
-      {/* RIGHT side - Form with tilt effect */}
-      <div
-        className="flex w-full items-center justify-center"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-          transition: "transform 0.1s ease-out",
-        }}>
-        {formComponent}
+      {/* RIGHT side - Badge + Image/GIF showcase */}
+      <div className="flex w-full flex-col gap-4">
+        {/* Badge at top */}
+        <div className="flex items-center justify-center lg:justify-start">
+          <div className="flex w-fit items-center justify-center rounded-full border border-white/20 bg-white/10 text-center backdrop-blur-sm">
+            <AnimatedShinyText className="px-4 py-1 text-sm text-white/90">
+              <span>Social Media Planner for ChatGPT by Kontentino</span>
+            </AnimatedShinyText>
+          </div>
+        </div>
+
+        {/* Image/GIF showcase with tilt effect */}
+        <div
+          className="flex w-full items-center justify-center"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+            transition: "transform 0.1s ease-out",
+          }}>
+          <div className="relative w-full overflow-hidden rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm shadow-2xl">
+            {/* Placeholder for GIF/Image - replace with actual image */}
+            <div className="relative aspect-[4/3] w-full bg-gradient-to-br from-white/10 to-white/5">
+              {/* TODO: Replace with actual GIF or image */}
+              <div className="flex h-full w-full items-center justify-center">
+                <div className="text-center">
+                  <p className="text-lg font-semibold text-white/90">Product Demo GIF</p>
+                  <p className="mt-2 text-sm text-white/70">Place your GIF/image here</p>
+                  <p className="mt-1 text-xs text-white/60">/public/hero-showcase.gif</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

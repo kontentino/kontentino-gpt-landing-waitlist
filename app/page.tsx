@@ -5,8 +5,14 @@ import { useState } from "react";
 import CTA from "@/components/cta";
 import Form from "@/components/form";
 import VideoShowcase from "@/components/video-showcase";
-import AboutSection from "@/components/about-section";
-import FinalCTA from "@/components/final-cta";
+import ValueBullets from "@/components/value-bullets";
+import SocialProof from "@/components/social-proof";
+import EarlyJoinSection from "@/components/early-join-section";
+import HowItWorks from "@/components/how-it-works";
+import WhoItsFor from "@/components/who-its-for";
+import EarlyAccessBenefits from "@/components/early-access-benefits";
+import FinalJoinSection from "@/components/final-join-section";
+import StickyCTA from "@/components/sticky-cta";
 import Particles from "@/components/ui/particles";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -101,7 +107,7 @@ export default function Home() {
       <Header />
 
       {/* Blue Hero Section */}
-      <section className="relative w-full bg-primary px-4 pb-20 sm:px-6 lg:px-8 lg:pb-32">
+      <section className="relative w-full bg-primary px-4 pt-12 pb-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20 lg:pb-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center">
           <CTA
             email={email}
@@ -112,51 +118,83 @@ export default function Home() {
             handleLinkedInChange={handleLinkedInChange}
             handleSubmit={handleSubmit}
             loading={loading}
-            formComponent={
-              <Form
-                email={email}
-                role={role}
-                linkedin={linkedin}
-                handleEmailChange={handleEmailChange}
-                handleRoleChange={handleRoleChange}
-                handleLinkedInChange={handleLinkedInChange}
-                handleSubmit={handleSubmit}
-                loading={loading}
-              />
-            }
           />
         </div>
       </section>
 
       {/* Video Showcase Section */}
-      <section className="w-full bg-background px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+      <section className="w-full bg-background px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-6xl">
           <VideoShowcase />
         </div>
       </section>
 
-      {/* Main Content Section - Pink Background */}
+      {/* Value Bullets - Quick wins */}
       <section className="w-full bg-background">
-        <AboutSection />
+        <ValueBullets />
       </section>
 
-      {/* Final CTA Section - White Background */}
-      <section className="w-full bg-white px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div className="mx-auto flex max-w-3xl flex-col items-center">
-          <FinalCTA
-            email={email}
-            role={role}
-            linkedin={linkedin}
-            handleEmailChange={handleEmailChange}
-            handleRoleChange={handleRoleChange}
-            handleLinkedInChange={handleLinkedInChange}
-            handleSubmit={handleSubmit}
-            loading={loading}
-          />
-        </div>
+      {/* Social Proof - Trust signals */}
+      <section className="w-full bg-background">
+        <SocialProof />
+      </section>
+
+      {/* Early Join Section - First conversion opportunity with FOMO */}
+      <section className="w-full bg-card">
+        <EarlyJoinSection
+          email={email}
+          role={role}
+          linkedin={linkedin}
+          handleEmailChange={handleEmailChange}
+          handleRoleChange={handleRoleChange}
+          handleLinkedInChange={handleLinkedInChange}
+          handleSubmit={handleSubmit}
+          loading={loading}
+        />
+      </section>
+
+      {/* How It Works - For those who need more info */}
+      <section className="w-full bg-background">
+        <HowItWorks />
+      </section>
+
+      {/* Who It's For - Self-identification */}
+      <section className="w-full bg-background">
+        <WhoItsFor />
+      </section>
+
+      {/* Early Access Benefits - Final FOMO push */}
+      <section className="w-full bg-background">
+        <EarlyAccessBenefits />
+      </section>
+
+      {/* Final Join Section with Contact Info - Second conversion opportunity */}
+      <section className="w-full bg-card">
+        <FinalJoinSection
+          email={email}
+          role={role}
+          linkedin={linkedin}
+          handleEmailChange={handleEmailChange}
+          handleRoleChange={handleRoleChange}
+          handleLinkedInChange={handleLinkedInChange}
+          handleSubmit={handleSubmit}
+          loading={loading}
+        />
       </section>
 
       <Footer />
+
+      {/* Sticky CTA */}
+      <StickyCTA
+        email={email}
+        role={role}
+        linkedin={linkedin}
+        handleEmailChange={handleEmailChange}
+        handleRoleChange={handleRoleChange}
+        handleLinkedInChange={handleLinkedInChange}
+        handleSubmit={handleSubmit}
+        loading={loading}
+      />
 
       {/* Light mode particles */}
       <div className="block dark:hidden">
