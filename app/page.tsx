@@ -5,6 +5,7 @@ import { useState } from "react";
 import CTA from "@/components/cta";
 import Form from "@/components/form";
 import VideoShowcase from "@/components/video-showcase";
+import ProblemStatement from "@/components/problem-statement";
 import ValueBullets from "@/components/value-bullets";
 import SocialProof from "@/components/social-proof";
 import EarlyJoinSection from "@/components/early-join-section";
@@ -129,7 +130,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Value Bullets - Quick wins */}
+      {/* Problem Statement - Show the pain */}
+      <section className="w-full">
+        <ProblemStatement />
+      </section>
+
+      {/* Value Bullets - The magic */}
       <section className="w-full bg-background">
         <ValueBullets />
       </section>

@@ -50,19 +50,17 @@ export default function CTA({
       {/* LEFT side - Text */}
       <div className="flex flex-col justify-center gap-6">
         <div>
-          <p className="mb-4 text-balance text-center text-lg font-medium text-secondary sm:text-xl lg:text-left">
-            Your ideas live in chat — but your plan doesn&apos;t
-          </p>
           <h1 className="text-balance text-center font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-left lg:text-6xl">
-            Bring your whole social media workflow inside ChatGPT.
+            Stop juggling tabs. Stay in ChatGPT.
           </h1>
+          <p className="mt-4 text-balance text-center text-xl font-medium text-secondary sm:text-2xl lg:text-left">
+            Turn messy chat threads into a visual content calendar — ready to approve and publish.
+          </p>
         </div>
 
         <div>
           <p className="mx-auto max-w-[30rem] text-pretty text-center text-base leading-relaxed text-white/80 sm:text-lg lg:mx-0 lg:text-left">
-            Social Media Planner turns your ChatGPT ideas into a visual content
-            calendar with ready-to-publish posts — without copy-pasting into
-            other tools.
+            The first social media planner built inside ChatGPT. Plan, approve, and schedule — without copy-pasting into other tools.
           </p>
         </div>
 
