@@ -46,8 +46,13 @@ export default function SocialProof() {
           <h3 className={`mt-2 text-3xl font-bold text-foreground transition-all duration-700 delay-100 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
           }`}>
-            Trusted by 6,000+ teams
+            Trusted by 6,000+ social media teams
           </h3>
+          <p className={`mt-3 text-base text-muted-foreground transition-all duration-700 delay-150 ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          }`}>
+            Used by marketing agencies, content creators, and global brands
+          </p>
         </div>
 
         {/* Client Logos */}

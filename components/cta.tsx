@@ -51,16 +51,20 @@ export default function CTA({
       <div className="flex flex-col justify-center gap-6">
         <div>
           <h1 className="text-balance text-center font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-left lg:text-6xl">
-            Stop juggling tabs. Stay in ChatGPT.
+            Your content calendar.
+            <br />
+            Built in ChatGPT.
+            <br />
+            Published in clicks.
           </h1>
-          <p className="mt-4 text-balance text-center text-xl font-medium text-secondary sm:text-2xl lg:text-left">
-            Turn messy chat threads into a visual content calendar — ready to approve and publish.
+          <p className="mt-6 text-balance text-center text-xl font-medium text-secondary sm:text-2xl lg:text-left">
+            Plan a month of content in one conversation. No copy-paste, no switching tools, no chaos.
           </p>
         </div>
 
         <div>
           <p className="mx-auto max-w-[30rem] text-pretty text-center text-base leading-relaxed text-white/80 sm:text-lg lg:mx-0 lg:text-left">
-            The first social media planner built inside ChatGPT. Plan, approve, and schedule — without copy-pasting into other tools.
+            The first ChatGPT integration that turns ideas into a visual calendar - ready to approve, export, and schedule.
           </p>
         </div>
 
@@ -73,7 +77,7 @@ export default function CTA({
                 iconPlacement="right"
                 size="lg"
                 className="bg-white px-8 py-6 text-lg text-primary hover:bg-white/90">
-                Join the waitlist — it&apos;s free
+                Join Wave 1 Beta
               </EnhancedButton>
             }
             email={email}
@@ -107,7 +111,7 @@ export default function CTA({
 
         <div className="mt-4">
           <p className="text-center text-sm text-white/70 lg:text-left">
-            Powered by Kontentino — trusted by 6,000+ teams
+            Powered by Kontentino — trusted by 6,000+ social media teams
           </p>
         </div>
       </div>
