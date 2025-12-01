@@ -54,6 +54,10 @@ export async function POST(request: Request) {
     const personFields = await getCustomFields(apiToken, 'person');
     const leadFields = await getCustomFields(apiToken, 'lead');
 
+    // Log available fields for debugging
+    console.log('📊 Available Pipedrive Lead Fields:', leadFields ? Object.keys(leadFields) : 'None found');
+    console.log('📊 Available Pipedrive Person Fields:', personFields ? Object.keys(personFields) : 'None found');
+
     // Look for LinkedIn field on Person (try common variations)
     const linkedinFieldKey = personFields?.['linkedin'] ||
                             personFields?.['linkedin profile'] ||
@@ -98,15 +102,17 @@ export async function POST(request: Request) {
       ? `${body.role} - ${body.email}`
       : `Waitlist - ${body.email}`;
 
-    // Build lead payload with standard fields
+    // Build lead payload with standard fields (Leads don't support source_origin/source_channel fields)
     const leadPayload: any = {
       title: leadTitle,
       person_id: personId,
       visible_to: "3",
-      // Use built-in Pipedrive source fields
-      source_origin: "Landing Page",
-      source_channel: body?.role || "Other",
-      source_channel_id: body?.linkedin || `cohort-${cohortTag}`,
+    };
+
+    // Track which fields are populated vs missing
+    const fieldStatus = {
+      populated: [] as string[],
+      missing: [] as string[],
     };
 
     // Also check for custom fields if they exist in Pipedrive
@@ -114,28 +120,52 @@ export async function POST(request: Request) {
       // Role field (custom)
       if (leadFields['role'] && body?.role) {
         leadPayload[leadFields['role']] = body.role;
+        fieldStatus.populated.push('role');
+      } else if (body?.role) {
+        fieldStatus.missing.push('role');
       }
 
       // Cohort field (custom)
       if (leadFields['cohort']) {
         leadPayload[leadFields['cohort']] = cohortTag;
+        fieldStatus.populated.push('cohort');
+      } else {
+        fieldStatus.missing.push('cohort');
       }
 
       // Source field (custom)
       if (leadFields['source']) {
         leadPayload[leadFields['source']] = "Landing Page - Social Media Planner";
+        fieldStatus.populated.push('source');
+      } else {
+        fieldStatus.missing.push('source');
       }
 
       // Signup Date field (custom)
       if (leadFields['signup date'] || leadFields['signup_date']) {
         const signupDateKey = leadFields['signup date'] || leadFields['signup_date'];
         leadPayload[signupDateKey] = now.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+        fieldStatus.populated.push('signup_date');
+      } else {
+        fieldStatus.missing.push('signup_date');
       }
 
       // LinkedIn field (custom - if you want it on the lead as well)
       if (leadFields['linkedin'] && body?.linkedin) {
         leadPayload[leadFields['linkedin']] = body.linkedin;
+        fieldStatus.populated.push('linkedin');
+      } else if (body?.linkedin) {
+        fieldStatus.missing.push('linkedin');
       }
+    } else {
+      fieldStatus.missing.push('role', 'cohort', 'source', 'signup_date', 'linkedin');
+    }
+
+    // Log field status
+    console.log('✅ Populated custom fields:', fieldStatus.populated.length > 0 ? fieldStatus.populated.join(', ') : 'None');
+    console.log('❌ Missing custom fields:', fieldStatus.missing.length > 0 ? fieldStatus.missing.join(', ') : 'None');
+    if (fieldStatus.missing.length > 0) {
+      console.log('💡 Create these fields in Pipedrive: Settings → Data fields → Leads');
     }
 
     const leadResponse = await fetch(`${PIPEDRIVE_API_BASE}/leads?api_token=${apiToken}`, {
