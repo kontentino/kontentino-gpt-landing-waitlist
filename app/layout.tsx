@@ -8,17 +8,19 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 const FigtreeFont = Figtree({ subsets: ["latin"] });
 
+const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || '';
+
 export const metadata: Metadata = {
-  title: "Kontentino GPT Apps - Early Beta Access",
+  title: "Kontentino – Social Media Planner for ChatGPT",
   description:
-    "Join the waitlist for Kontentino GPT Apps - the first ChatGPT integration built for social media professionals. Generate content in ChatGPT, preview with platform-accurate layouts, and export instantly.",
+    "Create and schedule posts in a visual content calendar. Plan, create, approve and schedule social media content with AI.",
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: `${assetPrefix}/favicon.ico` },
+      { url: `${assetPrefix}/favicon-16x16.png`, sizes: "16x16", type: "image/png" },
+      { url: `${assetPrefix}/favicon-32x32.png`, sizes: "32x32", type: "image/png" },
     ],
-    apple: "/apple-touch-icon.png",
+    apple: `${assetPrefix}/apple-touch-icon.png`,
   },
 };
 
@@ -39,19 +41,19 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
 
-        <meta property="og:image" content="/opengraph-image.png" />
+        <meta property="og:image" content={`${assetPrefix}/opengraph-image.png`} />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1280" />
         <meta property="og:image:height" content="832" />
         <meta
           property="og:site_name"
-          content="Kontentino GPT Apps - Early Beta Access"
+          content="Kontentino – Social Media Planner for ChatGPT"
         />
         <meta
           property="og:url"
           content="https://gpt-waitlist.kontentino.com/"
         />
-        <meta name="twitter:image" content="/twitter-image.png" />
+        <meta name="twitter:image" content={`${assetPrefix}/twitter-image.png`} />
         <meta name="twitter:image:type" content="image/png" />
         <meta name="twitter:image:width" content="1280" />
         <meta name="twitter:image:height" content="832" />

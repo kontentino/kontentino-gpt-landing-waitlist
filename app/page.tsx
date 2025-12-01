@@ -5,13 +5,10 @@ import { useState } from "react";
 import CTA from "@/components/cta";
 import Form from "@/components/form";
 import VideoShowcase from "@/components/video-showcase";
-import ProblemStatement from "@/components/problem-statement";
 import ValueBullets from "@/components/value-bullets";
 import SocialProof from "@/components/social-proof";
 import EarlyJoinSection from "@/components/early-join-section";
 import HowItWorks from "@/components/how-it-works";
-import WhoItsFor from "@/components/who-its-for";
-import EarlyAccessBenefits from "@/components/early-access-benefits";
 import FinalJoinSection from "@/components/final-join-section";
 import StickyCTA from "@/components/sticky-cta";
 import Particles from "@/components/ui/particles";
@@ -107,8 +104,8 @@ export default function Home() {
     <main className="relative flex min-h-screen flex-col overflow-x-clip">
       <Header />
 
-      {/* Blue Hero Section */}
-      <section className="relative w-full bg-primary px-4 pt-12 pb-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20 lg:pb-16">
+      {/* Pink Hero Section */}
+      <section className="relative w-full bg-gradient-to-b from-pink-600 via-pink-500 to-secondary px-4 pt-12 pb-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20 lg:pb-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center">
           <CTA
             email={email}
@@ -130,12 +127,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Problem Statement - Show the pain */}
-      <section className="w-full">
-        <ProblemStatement />
-      </section>
-
-      {/* Value Bullets - The magic */}
+      {/* Why Social Media Planner - The value proposition */}
       <section className="w-full bg-background">
         <ValueBullets />
       </section>
@@ -164,28 +156,11 @@ export default function Home() {
         <HowItWorks />
       </section>
 
-      {/* Who It's For - Self-identification */}
-      <section className="w-full bg-background">
-        <WhoItsFor />
-      </section>
 
-      {/* Early Access Benefits - Final FOMO push */}
-      <section className="w-full bg-background">
-        <EarlyAccessBenefits />
-      </section>
 
-      {/* Final Join Section with Contact Info - Second conversion opportunity */}
+      {/* Contact Info Section */}
       <section className="w-full bg-card">
-        <FinalJoinSection
-          email={email}
-          role={role}
-          linkedin={linkedin}
-          handleEmailChange={handleEmailChange}
-          handleRoleChange={handleRoleChange}
-          handleLinkedInChange={handleLinkedInChange}
-          handleSubmit={handleSubmit}
-          loading={loading}
-        />
+        <FinalJoinSection />
       </section>
 
       <Footer />

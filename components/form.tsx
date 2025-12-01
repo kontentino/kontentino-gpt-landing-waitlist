@@ -51,7 +51,7 @@ export default function Form({
       <div>
         <Input
           type="url"
-          placeholder="LinkedIn profile (optional)"
+          placeholder="LinkedIn profile, Twitter, website... (optional)"
           value={linkedin}
           onChange={handleLinkedInChange}
         />
@@ -67,10 +67,10 @@ export default function Form({
           {loading ? "Joining..." : "Join now — it's free"}
         </EnhancedButton>
       </div>
-      <div className="mt-2 text-center text-xs text-muted-foreground">
+      <div className="mt-2 text-center text-base text-muted-foreground">
         <p>We&apos;ll start sending invites in small waves to keep feedback manageable.</p>
       </div>
-      <div className="text-center text-xs text-muted-foreground/80">
+      <div className="text-center text-base text-muted-foreground/80">
         <p>No spam. We only send early access updates.</p>
       </div>
     </div>

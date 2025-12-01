@@ -30,11 +30,11 @@ export default function JoinSection({
           <div className="mb-6 flex justify-center">
             <div className="inline-flex items-center gap-2 rounded-full border-2 border-secondary/30 bg-secondary/10 px-4 py-2">
               <span className="text-xl">🚀</span>
-              <span className="text-sm font-semibold text-foreground">
+              <span className="text-base font-semibold text-foreground">
                 Wave 1 Beta Access
               </span>
-              <span className="text-sm text-muted-foreground">•</span>
-              <span className="text-sm font-medium text-secondary">
+              <span className="text-base text-muted-foreground">•</span>
+              <span className="text-base font-medium text-secondary">
                 Limited spots
               </span>
             </div>

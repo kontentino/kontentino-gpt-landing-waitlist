@@ -98,10 +98,10 @@
 
     --primary-dark: 230 100% 40%; /* #0025cb */
 
-    --secondary: 329 100% 77%; /* Pork/Pink: #ff8eef */
-    --secondary-foreground: 0 0% 10%; /* #1a1a1a */
+    --secondary: 324 100% 69%; /* Kontentino Pink: #ff5fc0 */
+    --secondary-foreground: 0 0% 100%; /* #ffffff */
 
-    --secondary-light: 320 100% 84%; /* Light Pink: #ffb0f4 */
+    --secondary-light: 308 100% 85%; /* Light Pink: #ffb0f4 */
 
     --grass: 157 77% 49%; /* Green: #2dd280 */
     --grass-foreground: 0 0% 100%; /* #ffffff */

@@ -2,7 +2,6 @@
 
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { FaArrowRightLong, FaPlay } from "react-icons/fa6";
-import AnimatedShinyText from "@/components/ui/shimmer-text";
 import { EnhancedButton } from "@/components/ui/enhanced-btn";
 import { Button } from "@/components/ui/button";
 import JoinWaitlistDialog from "@/components/join-waitlist-dialog";
@@ -51,16 +50,11 @@ export default function CTA({
       <div className="flex flex-col justify-center gap-6">
         <div>
           <h1 className="text-balance text-center font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-left lg:text-6xl">
-            Stop juggling tabs. Stay in ChatGPT.
+            Your content calendar. Built in ChatGPT. Published in clicks.
           </h1>
-          <p className="mt-4 text-balance text-center text-xl font-medium text-secondary sm:text-2xl lg:text-left">
-            Turn messy chat threads into a visual content calendar — ready to approve and publish.
-          </p>
-        </div>
-
-        <div>
-          <p className="mx-auto max-w-[30rem] text-pretty text-center text-base leading-relaxed text-white/80 sm:text-lg lg:mx-0 lg:text-left">
-            The first social media planner built inside ChatGPT. Plan, approve, and schedule — without copy-pasting into other tools.
+          <p className="mt-4 text-balance text-center text-xl font-medium text-white sm:text-2xl lg:text-left">
+            Plan a month of content in one conversation. No copy-paste, no
+            switching tools, no chaos.
           </p>
         </div>
 
@@ -72,8 +66,8 @@ export default function CTA({
                 Icon={FaArrowRightLong}
                 iconPlacement="right"
                 size="lg"
-                className="bg-white px-8 py-6 text-lg text-primary hover:bg-white/90">
-                Join the waitlist — it&apos;s free
+                className="bg-primary px-8 py-6 text-lg text-white hover:bg-primary/90">
+                Join Wave 1 Beta
               </EnhancedButton>
             }
             email={email}
@@ -86,7 +80,6 @@ export default function CTA({
             loading={loading}
           />
           <Button
-            variant="secondary"
             size="lg"
             onClick={() => {
               const videoSection = document
@@ -99,30 +92,36 @@ export default function CTA({
                 });
               }
             }}
-            className="border-white/30 px-8 py-6 text-lg text-white hover:bg-white/10">
+            variant="secondary"
+            className="border-0 bg-white px-8 py-6 text-lg text-primary hover:bg-white/90">
             <FaPlay className="mr-2" />
             See in action
           </Button>
         </div>
 
+        {/* Powered by section */}
         <div className="mt-4">
-          <p className="text-center text-sm text-white/70 lg:text-left">
-            Powered by Kontentino — trusted by 6,000+ teams
-          </p>
+          <div className="flex items-center justify-center gap-2 lg:justify-start">
+            <div className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 backdrop-blur-sm">
+              <svg
+                className="h-4 w-4 text-pink-300"
+                fill="currentColor"
+                viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span className="text-base font-medium text-white">
+                Powered by Kontentino
+              </span>
+            </div>
+            <span className="text-base text-white/60">
+              trusted by 6,000+ social media teams
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* RIGHT side - Badge + Image/GIF showcase */}
-      <div className="flex w-full flex-col gap-4">
-        {/* Badge at top */}
-        <div className="flex items-center justify-center lg:justify-start">
-          <div className="flex w-fit items-center justify-center rounded-full border border-white/20 bg-white/10 text-center backdrop-blur-sm">
-            <AnimatedShinyText className="px-4 py-1 text-sm text-white/90">
-              <span>Social Media Planner for ChatGPT by Kontentino</span>
-            </AnimatedShinyText>
-          </div>
-        </div>
-
+      {/* RIGHT side - Image/GIF showcase */}
+      <div className="flex w-full flex-col justify-center gap-4">
         {/* Image/GIF showcase with tilt effect */}
         <div
           className="flex w-full items-center justify-center"
@@ -132,19 +131,51 @@ export default function CTA({
             transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
             transition: "transform 0.1s ease-out",
           }}>
-          <div className="relative w-full overflow-hidden rounded-xl border-2 border-white/20 bg-white/5 backdrop-blur-sm shadow-2xl">
-            {/* Placeholder for GIF/Image - replace with actual image */}
-            <div className="relative aspect-[4/3] w-full bg-gradient-to-br from-white/10 to-white/5">
-              {/* TODO: Replace with actual GIF or image */}
-              <div className="flex h-full w-full items-center justify-center">
-                <div className="text-center">
-                  <p className="text-lg font-semibold text-white/90">Product Demo GIF</p>
-                  <p className="mt-2 text-sm text-white/70">Place your GIF/image here</p>
-                  <p className="mt-1 text-xs text-white/60">/public/hero-showcase.gif</p>
-                </div>
+          <div
+            className="relative w-full overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/10"
+            style={{
+              boxShadow:
+                "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 10px 20px -5px rgba(0, 0, 0, 0.3)",
+            }}>
+            {/* ChatGPT Browser Frame - Blue Theme */}
+            <div className="flex items-center justify-between border-b border-primary-dark bg-primary px-3 py-1">
+              {/* Left: Browser dots */}
+              <div className="flex gap-1.5">
+                <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
+                <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
+                <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
               </div>
+
+              {/* Center: "Works inside ChatGPT" badge */}
+              <div className="flex items-center gap-1.5 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-white backdrop-blur-sm">
+                <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400"></div>
+                <span className="whitespace-nowrap text-sm font-semibold text-white">
+                  Works inside ChatGPT
+                </span>
+              </div>
+
+              {/* Right: Spacer for symmetry */}
+              <div className="w-24"></div>
+            </div>
+            {/* GIF Content */}
+            <div className="relative aspect-[16/9] w-full bg-white">
+              <Image
+                src="/hero-demo-gif.gif"
+                alt="Social Media Planner Demo"
+                fill
+                className="object-cover"
+                unoptimized
+              />
             </div>
           </div>
+        </div>
+
+        {/* Description text */}
+        <div className="mt-4">
+          <p className="text-pretty text-center text-base leading-relaxed text-white/90 sm:text-lg">
+            The first ChatGPT integration that turns ideas into a visual
+            calendar - ready to approve, export, and schedule.
+          </p>
         </div>
       </div>
     </div>

@@ -81,10 +81,10 @@ export default function JoinWaitlistDialog({
             disabled={loading}>
             {loading ? "Joining..." : "Join now"}
           </EnhancedButton>
-          <p className="text-center text-xs text-muted-foreground">
+          <p className="text-center text-base text-muted-foreground">
             We&apos;ll start sending invites in small waves to keep feedback manageable.
           </p>
-          <p className="text-center text-xs text-muted-foreground/80">
+          <p className="text-center text-base text-muted-foreground/80">
             No spam. We only send early access updates.
           </p>
         </div>

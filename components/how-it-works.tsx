@@ -10,27 +10,27 @@ export default function HowItWorks() {
           {/* Step 1 */}
           <div className="flex flex-col gap-4 rounded-2xl bg-card border-2 border-primary/20 p-6 md:p-8 shadow-sm hover:shadow-md hover:border-primary/40 transition-all">
             <div className="text-5xl font-bold text-primary/20">1</div>
-            <h3 className="text-xl font-semibold text-foreground">Connect your brand</h3>
-            <p className="text-sm text-muted-foreground">
-              Paste your website or social profile. Social Media Planner learns your tone of voice and brand basics.
+            <h3 className="text-xl font-semibold text-foreground">Turn your ChatGPT content into a visual calendar</h3>
+            <p className="text-base text-muted-foreground">
+              No matter what you create in your ChatGPT thread — a <strong className="font-semibold text-foreground">single post</strong> or a <strong className="font-semibold text-foreground">whole month of content</strong> for all your channels — Social Media Planner <strong className="font-semibold text-foreground">instantly transforms</strong> it into a <strong className="font-semibold text-foreground">clean visual calendar</strong>. You can edit text, swap images, reorganize posts, and shape it into a real content plan.
             </p>
           </div>
 
           {/* Step 2 */}
           <div className="flex flex-col gap-4 rounded-2xl bg-card border-2 border-secondary/20 p-6 md:p-8 shadow-sm hover:shadow-md hover:border-secondary/40 transition-all">
             <div className="text-5xl font-bold text-secondary/20">2</div>
-            <h3 className="text-xl font-semibold text-foreground">Turn your ChatGPT content into a visual calendar</h3>
-            <p className="text-sm text-muted-foreground">
-              No matter what you create in your ChatGPT thread — a single post or a whole month of content for all your channels — Social Media Planner instantly transforms it into a clean visual calendar. You can edit text, swap images, reorganize posts, and shape it into a real content plan.
+            <h3 className="text-xl font-semibold text-foreground">Approve and refine</h3>
+            <p className="text-base text-muted-foreground">
+              Once your calendar looks right, you can <strong className="font-semibold text-foreground">send it for approval</strong>, make refinements, and perfect your content plan. <strong className="font-semibold text-foreground">Review, adjust, and collaborate</strong> — all <strong className="font-semibold text-foreground">without leaving ChatGPT</strong>.
             </p>
           </div>
 
           {/* Step 3 */}
           <div className="flex flex-col gap-4 rounded-2xl bg-card border-2 border-grass/20 p-6 md:p-8 shadow-sm hover:shadow-md hover:border-grass/40 transition-all">
             <div className="text-5xl font-bold text-grass/20">3</div>
-            <h3 className="text-xl font-semibold text-foreground">Approve, refine, and publish — all in one flow</h3>
-            <p className="text-sm text-muted-foreground">
-              Once your calendar looks right, you can send it for approval, export it, or publish it directly via Kontentino. No copy-pasting, no jumping between tools — just a smooth handoff from ideas to execution.
+            <h3 className="text-xl font-semibold text-foreground">Publish</h3>
+            <p className="text-base text-muted-foreground">
+              <strong className="font-semibold text-foreground">Export your content calendar</strong> to CSV/Sheets, or <strong className="font-semibold text-foreground">publish it directly</strong> to your social media platforms via Kontentino. <strong className="font-semibold text-foreground">No copy-pasting, no jumping between tools</strong> — just a smooth handoff from ideas to execution.
             </p>
           </div>
         </div>
