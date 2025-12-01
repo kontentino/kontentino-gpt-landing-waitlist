@@ -50,8 +50,9 @@ export async function POST(request: Request) {
     const cohortTag = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
     const roleTag = (body?.role || "Other").toLowerCase().replace(/\s+/g, "-");
 
-    // Fetch custom fields from Pipedrive for Person (LinkedIn field)
+    // Fetch custom fields from Pipedrive for Person (LinkedIn field) and Lead
     const personFields = await getCustomFields(apiToken, 'person');
+    const leadFields = await getCustomFields(apiToken, 'lead');
 
     // Look for LinkedIn field on Person (try common variations)
     const linkedinFieldKey = personFields?.['linkedin'] ||
@@ -97,13 +98,45 @@ export async function POST(request: Request) {
       ? `${body.role} - ${body.email}`
       : `Waitlist - ${body.email}`;
 
-    // Only use standard Pipedrive Lead fields to avoid "body is invalid" errors
-    // Custom field data is captured in the note instead
+    // Build lead payload with standard fields
     const leadPayload: any = {
       title: leadTitle,
       person_id: personId,
       visible_to: "3",
+      // Use built-in Pipedrive source fields
+      source_origin: "Landing Page",
+      source_channel: body?.role || "Other",
+      source_channel_id: body?.linkedin || `cohort-${cohortTag}`,
     };
+
+    // Also check for custom fields if they exist in Pipedrive
+    if (leadFields) {
+      // Role field (custom)
+      if (leadFields['role'] && body?.role) {
+        leadPayload[leadFields['role']] = body.role;
+      }
+
+      // Cohort field (custom)
+      if (leadFields['cohort']) {
+        leadPayload[leadFields['cohort']] = cohortTag;
+      }
+
+      // Source field (custom)
+      if (leadFields['source']) {
+        leadPayload[leadFields['source']] = "Landing Page - Social Media Planner";
+      }
+
+      // Signup Date field (custom)
+      if (leadFields['signup date'] || leadFields['signup_date']) {
+        const signupDateKey = leadFields['signup date'] || leadFields['signup_date'];
+        leadPayload[signupDateKey] = now.toISOString().split('T')[0]; // Format as YYYY-MM-DD
+      }
+
+      // LinkedIn field (custom - if you want it on the lead as well)
+      if (leadFields['linkedin'] && body?.linkedin) {
+        leadPayload[leadFields['linkedin']] = body.linkedin;
+      }
+    }
 
     const leadResponse = await fetch(`${PIPEDRIVE_API_BASE}/leads?api_token=${apiToken}`, {
       method: "POST",
