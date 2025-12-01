@@ -139,7 +139,7 @@ export default function EarlyJoinSection({
                     </svg>
                   </div>
                   <p className="text-base font-medium text-foreground leading-relaxed">
-                    We're looking for people who love trying new workflows — <span className="font-semibold">innovative marketers</span>, <span className="font-semibold">early adopters</span>, and <span className="font-semibold">advanced AI users</span> who want a smoother way to plan their content.
+                    We&apos;re looking for people who love trying new workflows — <span className="font-semibold">innovative marketers</span>, <span className="font-semibold">early adopters</span>, and <span className="font-semibold">advanced AI users</span> who want a smoother way to plan their content.
                   </p>
                 </div>
               </div>
