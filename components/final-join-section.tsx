@@ -13,7 +13,7 @@ export default function FinalJoinSection() {
               Have questions about the beta?
             </h2>
             <p className="text-lg text-muted-foreground">
-              We're here to help. Reach out and we'll get back to you shortly.
+              We&apos;re here to help. Reach out and we&apos;ll get back to you shortly.
             </p>
           </div>
 
@@ -28,7 +28,7 @@ export default function FinalJoinSection() {
                 <h3 className="text-xl font-semibold text-foreground">General Questions</h3>
               </div>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Questions about the ChatGPT integration, beta access, or how it works? We're happy to help.
+                Questions about the ChatGPT integration, beta access, or how it works? We&apos;re happy to help.
               </p>
               <Link
                 href="https://www.kontentino.com/contact/"
@@ -51,7 +51,7 @@ export default function FinalJoinSection() {
                 <h3 className="text-xl font-semibold text-foreground">Enterprise & Teams</h3>
               </div>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Need early access for your team or looking for enterprise pricing? Let's talk.
+                Need early access for your team or looking for enterprise pricing? Let&apos;s talk.
               </p>
               <Link
                 href="https://www.kontentino.com/contact/"

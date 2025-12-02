@@ -11,9 +11,51 @@ const FigtreeFont = Figtree({ subsets: ["latin"] });
 const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || '';
 
 export const metadata: Metadata = {
-  title: "Kontentino – Social Media Planner for ChatGPT",
+  title: "Social Media Planner for ChatGPT by Kontentino | Join Wave 1 Beta",
   description:
-    "Create and schedule posts in a visual content calendar. Plan, create, approve and schedule social media content with AI.",
+    "Plan a month of social media content in one ChatGPT conversation. Turn ideas into a visual content calendar with ready-to-publish posts. Join the exclusive Wave 1 beta by Kontentino - trusted by 6,000+ social media teams.",
+  keywords: [
+    "ChatGPT social media planner",
+    "social media content calendar",
+    "ChatGPT integration",
+    "Kontentino",
+    "AI social media management",
+    "content planning ChatGPT",
+    "social media scheduling",
+    "visual content calendar",
+    "ChatGPT for social media",
+    "social media planning tool"
+  ],
+  authors: [{ name: "Kontentino" }],
+  creator: "Kontentino",
+  publisher: "Kontentino",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://gpt-waitlist.kontentino.com/",
+    title: "Social Media Planner for ChatGPT by Kontentino | Join Wave 1 Beta",
+    description:
+      "Plan a month of social media content in one ChatGPT conversation. Turn ideas into a visual content calendar with ready-to-publish posts. Join the exclusive Wave 1 beta.",
+    siteName: "Kontentino Social Media Planner for ChatGPT",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Social Media Planner for ChatGPT by Kontentino | Join Wave 1 Beta",
+    description:
+      "Plan a month of social media content in one ChatGPT conversation. Visual calendar, ready-to-publish posts. Join the beta now.",
+    creator: "@kontentino",
+  },
   icons: {
     icon: [
       { url: `${assetPrefix}/favicon.ico` },
@@ -21,6 +63,9 @@ export const metadata: Metadata = {
       { url: `${assetPrefix}/favicon-32x32.png`, sizes: "32x32", type: "image/png" },
     ],
     apple: `${assetPrefix}/apple-touch-icon.png`,
+  },
+  alternates: {
+    canonical: "https://gpt-waitlist.kontentino.com/",
   },
 };
 
@@ -41,22 +86,86 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
 
-        <meta property="og:image" content={`${assetPrefix}/opengraph-image.png`} />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="1280" />
-        <meta property="og:image:height" content="832" />
-        <meta
-          property="og:site_name"
-          content="Kontentino – Social Media Planner for ChatGPT"
+        {/* Structured Data - JSON-LD */}
+        <Script
+          id="structured-data-organization"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Kontentino",
+              "url": "https://www.kontentino.com",
+              "logo": "https://www.kontentino.com/kontentino-pink-dust.svg",
+              "description": "Social Media Management Platform trusted by 6,000+ teams",
+              "sameAs": [
+                "https://www.facebook.com/kontentino",
+                "https://www.linkedin.com/company/kontentino",
+                "https://twitter.com/kontentino"
+              ]
+            })
+          }}
         />
-        <meta
-          property="og:url"
-          content="https://gpt-waitlist.kontentino.com/"
+        <Script
+          id="structured-data-webapp"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Social Media Planner for ChatGPT",
+              "applicationCategory": "BusinessApplication",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Free Beta Access"
+              },
+              "provider": {
+                "@type": "Organization",
+                "name": "Kontentino"
+              },
+              "description": "Plan a month of social media content in one ChatGPT conversation. Turn ideas into a visual content calendar with ready-to-publish posts.",
+              "featureList": [
+                "Visual content calendar in ChatGPT",
+                "Social media planning",
+                "Content scheduling",
+                "AI-powered content creation",
+                "Ready-to-publish posts"
+              ],
+              "audience": {
+                "@type": "Audience",
+                "audienceType": "Social media professionals, agencies, and creators"
+              }
+            })
+          }}
         />
-        <meta name="twitter:image" content={`${assetPrefix}/twitter-image.png`} />
-        <meta name="twitter:image:type" content="image/png" />
-        <meta name="twitter:image:width" content="1280" />
-        <meta name="twitter:image:height" content="832" />
+        <Script
+          id="structured-data-webpage"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "Social Media Planner for ChatGPT by Kontentino - Join Wave 1 Beta",
+              "description": "Plan a month of social media content in one ChatGPT conversation. Turn ideas into a visual content calendar with ready-to-publish posts. Join the exclusive Wave 1 beta by Kontentino.",
+              "url": "https://gpt-waitlist.kontentino.com/",
+              "inLanguage": "en-US",
+              "isPartOf": {
+                "@type": "WebSite",
+                "name": "Kontentino",
+                "url": "https://www.kontentino.com"
+              },
+              "about": {
+                "@type": "Thing",
+                "name": "ChatGPT Social Media Integration",
+                "description": "ChatGPT integration for social media content planning and scheduling"
+              },
+              "keywords": "ChatGPT social media planner, social media content calendar, ChatGPT integration, Kontentino, AI social media management"
+            })
+          }}
+        />
       </head>
       <body className={`${FigtreeFont.className} bg-background text-foreground`}>
         {/* Google Tag Manager (noscript) */}
