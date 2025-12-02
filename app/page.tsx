@@ -54,7 +54,11 @@ export default function Home() {
     const promise = new Promise(async (resolve, reject) => {
       try {
         // Save to Pipedrive CRM
-        const pipedriveResponse = await fetch("/api/pipedrive", {
+        // Use absolute URL to ensure API calls hit the actual hosting server, not the rewrite domain
+        const apiBaseUrl = process.env.NEXT_PUBLIC_ASSET_PREFIX || '';
+        const apiUrl = apiBaseUrl ? `${apiBaseUrl}/api/pipedrive` : '/api/pipedrive';
+
+        const pipedriveResponse = await fetch(apiUrl, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
