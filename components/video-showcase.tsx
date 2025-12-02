@@ -50,6 +50,7 @@ export default function VideoShowcase() {
               </video>
               {/* Enlarge icon overlay - top right */}
               <div
+                data-name="video-expand"
                 className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-10"
                 onClick={() => setIsOpen(true)}
               >
@@ -68,6 +69,7 @@ export default function VideoShowcase() {
           <div className="relative w-full h-full bg-black rounded-lg overflow-hidden">
             {/* Close button */}
             <button
+              data-name="video-close"
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 z-50 p-2 text-white transition-all hover:opacity-70"
               aria-label="Close video">

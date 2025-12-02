@@ -58,6 +58,7 @@ export default function Form({
       </div>
       <div>
         <EnhancedButton
+          data-name="form-join-now"
           variant="expandIcon"
           Icon={FaArrowRightLong}
           onClick={handleSubmit}

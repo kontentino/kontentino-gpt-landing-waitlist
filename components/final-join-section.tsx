@@ -35,6 +35,7 @@ export default function FinalJoinSection() {
                 target="_blank"
                 rel="noopener noreferrer">
                 <Button
+                  data-name="contact-general"
                   variant="outline"
                   className="w-full border-primary/30 text-primary hover:bg-primary hover:text-white">
                   Contact us
@@ -58,6 +59,7 @@ export default function FinalJoinSection() {
                 target="_blank"
                 rel="noopener noreferrer">
                 <Button
+                  data-name="contact-enterprise"
                   variant="outline"
                   className="w-full border-secondary/30 text-secondary hover:bg-secondary hover:text-white">
                   Talk to sales
@@ -79,6 +81,7 @@ export default function FinalJoinSection() {
               target="_blank"
               rel="noopener noreferrer">
               <Button
+                data-name="contact-live-chat"
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-white">
                 <MessageCircle className="mr-2 h-5 w-5" />

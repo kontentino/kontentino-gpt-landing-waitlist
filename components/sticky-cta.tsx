@@ -56,6 +56,7 @@ export default function StickyCTA({
         trigger={
           <div className="relative">
             <EnhancedButton
+              data-name="sticky-early-access"
               variant="expandIcon"
               Icon={FaArrowRightLong}
               iconPlacement="right"

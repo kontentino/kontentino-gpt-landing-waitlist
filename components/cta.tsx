@@ -65,6 +65,7 @@ export default function CTA({
           <JoinWaitlistDialog
             trigger={
               <EnhancedButton
+                data-name="hero-join-wave1"
                 variant="expandIcon"
                 Icon={FaArrowRightLong}
                 iconPlacement="right"
@@ -83,6 +84,7 @@ export default function CTA({
             loading={loading}
           />
           <Button
+            data-name="hero-see-action"
             size="lg"
             onClick={() => {
               const videoSection = document

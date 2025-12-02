@@ -73,6 +73,7 @@ export default function JoinWaitlistDialog({
             onChange={handleLinkedInChange}
           />
           <EnhancedButton
+            data-name="dialog-join-now"
             variant="expandIcon"
             Icon={FaArrowRightLong}
             onClick={handleSubmit}
