@@ -14,6 +14,7 @@ const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || "";
 const baseUrl = "https://kontentino-gpt-landing-waitlist-production.up.railway.app";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: "Social Media Planner for ChatGPT by Kontentino | Join Wave 1 Beta",
   description:
     "Plan a month of social media content in one ChatGPT conversation. Turn ideas into a visual content calendar with ready-to-publish posts. Join the exclusive Wave 1 beta by Kontentino - trusted by 6,000+ social media teams.",
