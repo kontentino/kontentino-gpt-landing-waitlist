@@ -62,7 +62,7 @@ export default function Form({
           Icon={FaArrowRightLong}
           onClick={handleSubmit}
           iconPlacement="right"
-          className="mt-2 w-full bg-foreground text-background hover:bg-foreground/90"
+          className="mt-2 w-full bg-gradient-to-r from-primary to-cta text-white hover:shadow-lg hover:shadow-primary/30 transition-all"
           disabled={loading}>
           {loading ? "Joining..." : "Join now — it's free"}
         </EnhancedButton>

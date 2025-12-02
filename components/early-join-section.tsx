@@ -77,20 +77,7 @@ export default function EarlyJoinSection({
                 Why join Wave 1?
               </h3>
               <div className="flex flex-col gap-6">
-                {/* First to access - EMPHASIZED & LARGER */}
-                <div className="flex items-start gap-4 rounded-xl border-4 border-primary/40 bg-gradient-to-br from-primary/10 to-primary/5 p-8 shadow-lg">
-                  <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-primary/20">
-                    <Sparkles className="h-10 w-10 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="mb-3 text-xl font-extrabold text-foreground md:text-2xl">First to access</h4>
-                    <p className="text-base font-medium text-foreground md:text-lg">
-                      Get the ChatGPT integration months before it launches in Europe
-                    </p>
-                  </div>
-                </div>
-
-                {/* Shape the product */}
+                {/* First to access & Shape the product - COMBINED */}
                 <div className="flex items-start gap-4">
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-secondary/10">
                     <Users className="h-6 w-6 text-secondary" />
@@ -98,7 +85,7 @@ export default function EarlyJoinSection({
                   <div>
                     <h4 className="mb-1 font-semibold text-foreground">Shape the product</h4>
                     <p className="text-base text-muted-foreground">
-                      Your feedback directly influences features before public launch
+                      Be <span className="font-semibold text-foreground">first to access</span> the ChatGPT integration months before it launches in Europe. Your feedback directly influences features before public launch
                     </p>
                   </div>
                 </div>

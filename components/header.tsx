@@ -14,11 +14,11 @@ export default function Header() {
   };
 
   return (
-    <div className="sticky top-0 z-[50] w-full bg-pink-600 shadow-lg">
+    <div className="sticky top-0 z-[50] w-full bg-background shadow-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Title + Logo on the left */}
         <div className="flex items-center gap-2">
-          <span className="hidden text-xl font-medium text-white md:inline">
+          <span className="hidden text-xl font-medium text-primary md:inline">
             Social Media Planner for ChatGPT by
           </span>
           <Link
@@ -30,32 +30,29 @@ export default function Header() {
               alt="Kontentino"
               width={120}
               height={28}
-              className="h-[1.1rem] w-auto brightness-0 invert"
+              className="h-[1.1rem] w-auto [filter:brightness(0)_saturate(100%)_invert(24%)_sepia(99%)_saturate(3088%)_hue-rotate(227deg)_brightness(98%)_contrast(93%)]"
               unoptimized
             />
           </Link>
         </div>
 
         {/* CTAs on the right */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
           <Button
             size="sm"
             onClick={handleSeeInAction}
-            className="rounded-xl border-0 bg-white font-medium text-pink-600 transition-all duration-150 ease-linear hover:bg-white/90">
+            className="rounded-xl bg-card px-4 py-2 text-sm font-medium text-primary transition-all hover:bg-primary hover:text-white hover:shadow-lg">
             <FaPlay className="mr-1.5 text-xs" />
-            <span className="text-pink-600">See in action</span>
+            <span>See in action</span>
           </Button>
           <Link
             href="https://www.kontentino.com"
             rel="noopener noreferrer"
             target="_blank"
             className="hidden md:inline-block">
-            <Button
-              size="sm"
-              variant="ghost"
-              className="rounded-xl border-2 border-white font-medium text-white transition-all duration-150 ease-linear hover:bg-white hover:text-pink-600">
-              <span>About Kontentino</span>
-            </Button>
+            <span className="text-sm font-medium text-primary transition-colors hover:text-primary/70">
+              About Kontentino
+            </span>
           </Link>
         </div>
       </div>

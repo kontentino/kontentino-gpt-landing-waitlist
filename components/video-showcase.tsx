@@ -24,26 +24,37 @@ export default function VideoShowcase() {
         </div>
 
         {/* Video container */}
-        <div className="w-full">
-          <div className="w-full rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm p-3 shadow-xl">
-            <div
-              className="relative w-full bg-gradient-to-br from-gray-900/40 to-gray-800/40 rounded-lg overflow-hidden cursor-pointer group"
-              style={{ aspectRatio: '1920 / 1004' }}
-              onClick={() => setIsOpen(true)}
-            >
+        <div className="w-full relative">
+          {/* Glowing animated background */}
+          <div className="absolute inset-0 -z-10 pointer-events-none">
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/60 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-secondary/60 rounded-full blur-3xl animate-pulse" style={{
+              animationDelay: "1s",
+            }}></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-secondary-light/50 rounded-full blur-3xl animate-pulse" style={{
+              animationDelay: "2s",
+            }}></div>
+          </div>
+
+          <div className="w-full rounded-xl border-2 border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10 backdrop-blur-sm p-3 shadow-xl">
+            <div className="relative w-full rounded-lg overflow-hidden group">
               <video
-                className="w-full h-full rounded-lg"
+                className="w-full h-auto rounded-lg block"
                 autoPlay
                 loop
                 muted
-                playsInline>
+                playsInline
+                controls>
                 <source src={`${assetPrefix}/hero-demo.mp4`} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              {/* Enlarge icon overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/20 transition-all">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 rounded-full p-3">
-                  <Maximize2 className="w-8 h-8 text-primary" />
+              {/* Enlarge icon overlay - top right */}
+              <div
+                className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer z-10"
+                onClick={() => setIsOpen(true)}
+              >
+                <div className="bg-primary/90 rounded-full p-2 hover:bg-primary transition-colors shadow-lg">
+                  <Maximize2 className="w-6 h-6 text-white" />
                 </div>
               </div>
             </div>

@@ -103,6 +103,9 @@
 
     --secondary-light: 308 100% 85%; /* Light Pink: #ffb0f4 */
 
+    --cta: 308 100% 78%; /* CTA Pink: #ff8eef */
+    --cta-foreground: 0 0% 100%; /* #ffffff */
+
     --grass: 157 77% 49%; /* Green: #2dd280 */
     --grass-foreground: 0 0% 100%; /* #ffffff */
 
@@ -145,6 +148,9 @@
     --secondary-foreground: 210 11% 98%; /* #f8f9fa */
 
     --secondary-light: 320 100% 84%; /* Light Pink: #ffb0f4 */
+
+    --cta: 308 100% 78%; /* CTA Pink: #ff8eef */
+    --cta-foreground: 0 0% 100%; /* #ffffff */
 
     --muted: 215 12% 21%; /* #31363e */
     --muted-foreground: 215 18% 66%; /* #a2aab8 */
@@ -203,4 +209,31 @@ body {
 .animate-gradient {
   background-size: 200% auto;
   animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+@keyframes gentle-float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-8px) translateX(4px) rotateY(2deg);
+  }
+  50% {
+    transform: translateY(-12px) translateX(0px) rotateY(0deg);
+  }
+  75% {
+    transform: translateY(-8px) translateX(-4px) rotateY(-2deg);
+  }
 }

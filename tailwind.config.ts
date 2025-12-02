@@ -38,6 +38,10 @@ const config = {
           foreground: "hsl(var(--secondary-foreground))",
           light: "hsl(var(--secondary-light))",
         },
+        cta: {
+          DEFAULT: "hsl(var(--cta))",
+          foreground: "hsl(var(--cta-foreground))",
+        },
         grass: {
           DEFAULT: "hsl(var(--grass))",
           foreground: "hsl(var(--grass-foreground))",

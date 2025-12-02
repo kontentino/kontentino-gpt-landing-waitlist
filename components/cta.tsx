@@ -6,6 +6,9 @@ import { EnhancedButton } from "@/components/ui/enhanced-btn";
 import { Button } from "@/components/ui/button";
 import JoinWaitlistDialog from "@/components/join-waitlist-dialog";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || '';
 
 interface CTAProps {
   email: string;
@@ -29,8 +32,10 @@ export default function CTA({
   loading,
 }: CTAProps) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    setIsHovering(true);
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -42,6 +47,7 @@ export default function CTA({
   };
 
   const handleMouseLeave = () => {
+    setIsHovering(false);
     setTilt({ x: 0, y: 0 });
   };
   return (
@@ -49,10 +55,10 @@ export default function CTA({
       {/* LEFT side - Text */}
       <div className="flex flex-col justify-center gap-6">
         <div>
-          <h1 className="text-balance text-center font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-left lg:text-6xl">
+          <h1 className="text-balance text-center font-serif text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-left lg:text-6xl">
             Your content calendar. Built in ChatGPT. Published in clicks.
           </h1>
-          <p className="mt-4 text-balance text-center text-xl font-medium text-white sm:text-2xl lg:text-left">
+          <p className="mt-4 text-balance text-center text-xl font-medium text-primary sm:text-2xl lg:text-left">
             Plan a month of content in one conversation. No copy-paste, no
             switching tools, no chaos.
           </p>
@@ -66,7 +72,7 @@ export default function CTA({
                 Icon={FaArrowRightLong}
                 iconPlacement="right"
                 size="lg"
-                className="bg-primary px-8 py-6 text-lg text-white hover:bg-primary/90">
+                className="bg-gradient-to-r from-primary to-cta px-8 py-6 text-lg text-white hover:shadow-lg hover:shadow-primary/30 transition-all">
                 Join Wave 1 Beta
               </EnhancedButton>
             }
@@ -93,7 +99,7 @@ export default function CTA({
               }
             }}
             variant="secondary"
-            className="border-0 bg-white px-8 py-6 text-lg text-primary hover:bg-white/90">
+            className="border-0 bg-card px-8 py-6 text-lg text-primary transition-all hover:bg-primary hover:text-white hover:shadow-lg">
             <FaPlay className="mr-2" />
             See in action
           </Button>
@@ -101,19 +107,19 @@ export default function CTA({
 
         {/* Powered by section */}
         <div className="mt-4">
-          <div className="flex items-center justify-center gap-2 lg:justify-start">
-            <div className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-2 backdrop-blur-sm">
+          <div className="flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start">
+            <div className="flex items-center gap-1.5 rounded-lg border border-primary/20 bg-primary/5 px-3 py-2 backdrop-blur-sm">
               <svg
-                className="h-4 w-4 text-pink-300"
+                className="h-4 w-4 text-secondary"
                 fill="currentColor"
                 viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <span className="text-base font-medium text-white">
+              <span className="text-base font-medium text-primary">
                 Powered by Kontentino
               </span>
             </div>
-            <span className="text-base text-white/60">
+            <span className="text-base text-primary/60">
               trusted by 6,000+ social media teams
             </span>
           </div>
@@ -124,13 +130,36 @@ export default function CTA({
       <div className="flex w-full flex-col justify-center gap-4">
         {/* Image/GIF showcase with tilt effect */}
         <div
-          className="flex w-full items-center justify-center"
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          style={{
-            transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-            transition: "transform 0.1s ease-out",
-          }}>
+          className="flex w-full items-center justify-center relative"
+          style={{ perspective: "1000px" }}
+        >
+          <motion.div
+            className={`w-full ${!isHovering ? 'animate-[gentle-float_6s_ease-in-out_infinite]' : ''}`}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            animate={{
+              rotateY: isHovering ? tilt.y : 0,
+              rotateX: isHovering ? tilt.x : 0,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+            }}
+            style={{
+              transformStyle: "preserve-3d",
+            }}>
+          {/* Glowing animated background */}
+          <div className="absolute inset-0 -z-10">
+            <div className="absolute -top-10 -left-10 w-80 h-80 bg-primary/50 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-secondary/50 rounded-full blur-3xl animate-pulse" style={{
+              animationDelay: "1s",
+            }}></div>
+            <div className="absolute top-1/2 -right-20 w-64 h-64 bg-secondary-light/40 rounded-full blur-3xl animate-pulse" style={{
+              animationDelay: "2s",
+            }}></div>
+          </div>
+
           <div
             className="relative w-full overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/10"
             style={{
@@ -160,7 +189,7 @@ export default function CTA({
             {/* GIF Content */}
             <div className="relative aspect-[16/9] w-full bg-white">
               <Image
-                src="/hero-demo-gif.gif"
+                src={`${assetPrefix}/hero-demo-gif.gif`}
                 alt="Social Media Planner Demo"
                 fill
                 className="object-cover"
@@ -168,11 +197,12 @@ export default function CTA({
               />
             </div>
           </div>
+          </motion.div>
         </div>
 
         {/* Description text */}
         <div className="mt-4">
-          <p className="text-pretty text-center text-base leading-relaxed text-white/90 sm:text-lg">
+          <p className="text-pretty text-center text-base leading-relaxed text-primary/90 sm:text-lg">
             The first ChatGPT integration that turns ideas into a visual
             calendar - ready to approve, export, and schedule.
           </p>

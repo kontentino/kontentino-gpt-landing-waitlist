@@ -105,7 +105,7 @@ export default function Home() {
       <Header />
 
       {/* Pink Hero Section */}
-      <section className="relative w-full bg-gradient-to-b from-pink-600 via-pink-500 to-secondary px-4 pt-12 pb-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20 lg:pb-16">
+      <section className="relative w-full bg-background px-4 pt-12 pb-12 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20 lg:pb-16">
         <div className="mx-auto flex max-w-7xl flex-col items-center">
           <CTA
             email={email}
@@ -121,7 +121,7 @@ export default function Home() {
       </section>
 
       {/* Video Showcase Section */}
-      <section className="w-full bg-background px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <section className="w-full bg-card px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-6xl">
           <VideoShowcase />
         </div>
@@ -133,12 +133,12 @@ export default function Home() {
       </section>
 
       {/* Social Proof - Trust signals */}
-      <section className="w-full bg-background">
+      <section className="w-full bg-card">
         <SocialProof />
       </section>
 
       {/* Early Join Section - First conversion opportunity with FOMO */}
-      <section className="w-full bg-card">
+      <section className="w-full bg-background">
         <EarlyJoinSection
           email={email}
           role={role}
@@ -152,14 +152,14 @@ export default function Home() {
       </section>
 
       {/* How It Works - For those who need more info */}
-      <section className="w-full bg-background">
+      <section className="w-full bg-card">
         <HowItWorks />
       </section>
 
 
 
       {/* Contact Info Section */}
-      <section className="w-full bg-card">
+      <section className="w-full bg-background">
         <FinalJoinSection />
       </section>
 

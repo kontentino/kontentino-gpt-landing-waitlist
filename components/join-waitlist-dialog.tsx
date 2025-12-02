@@ -42,10 +42,10 @@ export default function JoinWaitlistDialog({
       <DialogTrigger asChild>
         {trigger}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="sm:max-w-[500px] bg-card border-2 border-primary/20">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">Join the waitlist</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-2xl font-bold text-primary">Join the waitlist</DialogTitle>
+          <DialogDescription className="text-muted-foreground">
             Be among the first to try Social Media Planner
           </DialogDescription>
         </DialogHeader>
@@ -77,7 +77,7 @@ export default function JoinWaitlistDialog({
             Icon={FaArrowRightLong}
             onClick={handleSubmit}
             iconPlacement="right"
-            className="mt-2 w-full bg-foreground text-background hover:bg-foreground/90"
+            className="mt-2 w-full bg-gradient-to-r from-primary to-cta text-white hover:shadow-lg hover:shadow-primary/30 transition-all"
             disabled={loading}>
             {loading ? "Joining..." : "Join now"}
           </EnhancedButton>

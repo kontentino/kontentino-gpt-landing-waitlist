@@ -60,7 +60,7 @@ export default function StickyCTA({
               Icon={FaArrowRightLong}
               iconPlacement="right"
               size="lg"
-              className="relative bg-gradient-to-r from-primary to-secondary px-8 py-6 text-base font-bold text-white shadow-2xl hover:shadow-primary/50 animate-pulse-subtle hover:scale-110 transition-all duration-300">
+              className="relative bg-gradient-to-r from-primary to-cta px-8 py-6 text-base font-bold text-white shadow-2xl hover:shadow-primary/50 animate-pulse-subtle hover:scale-110 transition-all duration-300">
               <span className="relative z-10">Get Early Access</span>
             </EnhancedButton>
             {/* Small "limited spots" badge */}
