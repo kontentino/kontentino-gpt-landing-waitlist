@@ -172,24 +172,24 @@ export default function CTA({
                     "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 10px 20px -5px rgba(0, 0, 0, 0.3)",
                 }}>
                 {/* ChatGPT Browser Frame - Blue Theme */}
-                <div className="flex items-center justify-between border-b border-primary-dark bg-primary px-3 py-1">
+                <div className="flex items-center justify-between border-b border-primary-dark bg-primary px-2 py-1 md:px-3">
                   {/* Left: Browser dots */}
-                  <div className="flex gap-1.5">
-                    <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
-                    <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
-                    <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
+                  <div className="flex gap-1 md:gap-1.5">
+                    <div className="h-2 w-2 rounded-full bg-white/40 md:h-2.5 md:w-2.5"></div>
+                    <div className="h-2 w-2 rounded-full bg-white/40 md:h-2.5 md:w-2.5"></div>
+                    <div className="h-2 w-2 rounded-full bg-white/40 md:h-2.5 md:w-2.5"></div>
                   </div>
 
                   {/* Center: "Works inside ChatGPT" badge */}
-                  <div className="flex items-center gap-1.5 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-white backdrop-blur-sm">
-                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400"></div>
-                    <span className="whitespace-nowrap text-sm font-semibold text-white">
+                  <div className="flex items-center gap-1 rounded-full border border-white/30 bg-white/20 px-2 py-0.5 text-white backdrop-blur-sm md:gap-1.5 md:px-3 md:py-1">
+                    <div className="h-1 w-1 animate-pulse rounded-full bg-green-400 md:h-1.5 md:w-1.5"></div>
+                    <span className="whitespace-nowrap text-[10px] font-semibold text-white md:text-sm">
                       Works inside ChatGPT
                     </span>
                   </div>
 
                   {/* Right: Spacer for symmetry */}
-                  <div className="w-24"></div>
+                  <div className="w-8 md:w-24"></div>
                 </div>
                 {/* GIF Content */}
                 <div className="relative aspect-[16/9] w-full bg-white">

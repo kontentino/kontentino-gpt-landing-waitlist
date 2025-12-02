@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gpt-waitlist.kontentino.com/",
+    url: "https://www.kontentino.com/chatgpt/",
     title: "Social Media Planner for ChatGPT by Kontentino | Join Wave 1 Beta",
     description:
       "Plan a month of social media content in one ChatGPT conversation. Turn ideas into a visual content calendar with ready-to-publish posts. Join the exclusive Wave 1 beta.",
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     apple: `${assetPrefix}/apple-touch-icon.png`,
   },
   alternates: {
-    canonical: "https://gpt-waitlist.kontentino.com/",
+    canonical: "https://www.kontentino.com/chatgpt/",
   },
 };
 
@@ -179,7 +179,7 @@ export default function RootLayout({
               name: "Social Media Planner for ChatGPT by Kontentino - Join Wave 1 Beta",
               description:
                 "Plan a month of social media content in one ChatGPT conversation. Turn ideas into a visual content calendar with ready-to-publish posts. Join the exclusive Wave 1 beta by Kontentino.",
-              url: "https://gpt-waitlist.kontentino.com/",
+              url: "https://www.kontentino.com/chatgpt/",
               inLanguage: "en-US",
               isPartOf: {
                 "@type": "WebSite",
