@@ -32,10 +32,8 @@ export default function CTA({
   loading,
 }: CTAProps) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    setIsHovering(true);
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -47,7 +45,6 @@ export default function CTA({
   };
 
   const handleMouseLeave = () => {
-    setIsHovering(false);
     setTilt({ x: 0, y: 0 });
   };
   return (
@@ -133,71 +130,78 @@ export default function CTA({
           className="flex w-full items-center justify-center relative"
           style={{ perspective: "1000px" }}
         >
-          <motion.div
-            className={`w-full ${!isHovering ? 'animate-[gentle-float_6s_ease-in-out_infinite]' : ''}`}
+          {/* CSS animation wrapper - always running, captures mouse events */}
+          <div
+            className="w-full animate-[gentle-float_6s_ease-in-out_infinite]"
+            style={{ transformStyle: "preserve-3d" }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            animate={{
-              rotateY: isHovering ? tilt.y : 0,
-              rotateX: isHovering ? tilt.x : 0,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 30,
-            }}
-            style={{
-              transformStyle: "preserve-3d",
-            }}>
-          {/* Glowing animated background */}
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute -top-10 -left-10 w-80 h-80 bg-primary/50 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-secondary/50 rounded-full blur-3xl animate-pulse" style={{
-              animationDelay: "1s",
-            }}></div>
-            <div className="absolute top-1/2 -right-20 w-64 h-64 bg-secondary-light/40 rounded-full blur-3xl animate-pulse" style={{
-              animationDelay: "2s",
-            }}></div>
-          </div>
-
-          <div
-            className="relative w-full overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/10"
-            style={{
-              boxShadow:
-                "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 10px 20px -5px rgba(0, 0, 0, 0.3)",
-            }}>
-            {/* ChatGPT Browser Frame - Blue Theme */}
-            <div className="flex items-center justify-between border-b border-primary-dark bg-primary px-3 py-1">
-              {/* Left: Browser dots */}
-              <div className="flex gap-1.5">
-                <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
-                <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
-                <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
+          >
+            {/* Mouse hover motion wrapper */}
+            <motion.div
+              className="w-full"
+              animate={{
+                rotateY: tilt.y,
+                rotateX: tilt.x,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+              }}
+              style={{
+                transformStyle: "preserve-3d",
+              }}>
+              {/* Glowing animated background */}
+              <div className="absolute inset-0 -z-10">
+                <div className="absolute -top-10 -left-10 w-80 h-80 bg-primary/50 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-secondary/50 rounded-full blur-3xl animate-pulse" style={{
+                  animationDelay: "1s",
+                }}></div>
+                <div className="absolute top-1/2 -right-20 w-64 h-64 bg-secondary-light/40 rounded-full blur-3xl animate-pulse" style={{
+                  animationDelay: "2s",
+                }}></div>
               </div>
 
-              {/* Center: "Works inside ChatGPT" badge */}
-              <div className="flex items-center gap-1.5 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-white backdrop-blur-sm">
-                <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400"></div>
-                <span className="whitespace-nowrap text-sm font-semibold text-white">
-                  Works inside ChatGPT
-                </span>
-              </div>
+              <div
+                className="relative w-full overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/10"
+                style={{
+                  boxShadow:
+                    "0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 10px 20px -5px rgba(0, 0, 0, 0.3)",
+                }}>
+                {/* ChatGPT Browser Frame - Blue Theme */}
+                <div className="flex items-center justify-between border-b border-primary-dark bg-primary px-3 py-1">
+                  {/* Left: Browser dots */}
+                  <div className="flex gap-1.5">
+                    <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
+                    <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
+                    <div className="h-2.5 w-2.5 rounded-full bg-white/40"></div>
+                  </div>
 
-              {/* Right: Spacer for symmetry */}
-              <div className="w-24"></div>
-            </div>
-            {/* GIF Content */}
-            <div className="relative aspect-[16/9] w-full bg-white">
-              <Image
-                src={`${assetPrefix}/hero-demo-gif.gif`}
-                alt="Social Media Planner Demo"
-                fill
-                className="object-cover"
-                unoptimized
-              />
-            </div>
+                  {/* Center: "Works inside ChatGPT" badge */}
+                  <div className="flex items-center gap-1.5 rounded-full border border-white/30 bg-white/20 px-3 py-1 text-white backdrop-blur-sm">
+                    <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400"></div>
+                    <span className="whitespace-nowrap text-sm font-semibold text-white">
+                      Works inside ChatGPT
+                    </span>
+                  </div>
+
+                  {/* Right: Spacer for symmetry */}
+                  <div className="w-24"></div>
+                </div>
+                {/* GIF Content */}
+                <div className="relative aspect-[16/9] w-full bg-white">
+                  <Image
+                    src={`${assetPrefix}/hero-demo-gif.gif`}
+                    alt="Social Media Planner Demo"
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                </div>
+              </div>
+            </motion.div>
           </div>
-          </motion.div>
         </div>
 
         {/* Description text */}
