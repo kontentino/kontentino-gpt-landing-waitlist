@@ -9,6 +9,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 const FigtreeFont = Figtree({ subsets: ["latin"] });
 
 const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || "";
+// For OG images, always use absolute URLs (required by social media crawlers)
+const baseUrl = process.env.NEXT_PUBLIC_ASSET_PREFIX || "https://kontentino-gpt-landing-waitlist-production.up.railway.app";
 
 export const metadata: Metadata = {
   title: "Social Media Planner for ChatGPT by Kontentino | Join Wave 1 Beta",
@@ -50,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Kontentino Social Media Planner for ChatGPT",
     images: [
       {
-        url: `${assetPrefix}/opengraph-image.png`,
+        url: `${baseUrl}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: "Social Media Planner for ChatGPT by Kontentino",
@@ -63,23 +65,23 @@ export const metadata: Metadata = {
     description:
       "Plan a month of social media content in one ChatGPT conversation. Visual calendar, ready-to-publish posts. Join the beta now.",
     creator: "@kontentino",
-    images: [`${assetPrefix}/twitter-image.png`],
+    images: [`${baseUrl}/twitter-image.png`],
   },
   icons: {
     icon: [
-      { url: `${assetPrefix}/favicon.ico` },
+      { url: `${baseUrl}/favicon.ico` },
       {
-        url: `${assetPrefix}/favicon-16x16.png`,
+        url: `${baseUrl}/favicon-16x16.png`,
         sizes: "16x16",
         type: "image/png",
       },
       {
-        url: `${assetPrefix}/favicon-32x32.png`,
+        url: `${baseUrl}/favicon-32x32.png`,
         sizes: "32x32",
         type: "image/png",
       },
     ],
-    apple: `${assetPrefix}/apple-touch-icon.png`,
+    apple: `${baseUrl}/apple-touch-icon.png`,
   },
   alternates: {
     canonical: "https://www.kontentino.com/chatgpt/",
