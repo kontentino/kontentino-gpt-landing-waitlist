@@ -10,8 +10,8 @@ const FigtreeFont = Figtree({ subsets: ["latin"] });
 
 const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || "";
 // For OG images, always use absolute URLs (required by social media crawlers)
-// Hard-coded production URL to ensure it's available at build time
-const baseUrl = "https://kontentino-gpt-landing-waitlist-production.up.railway.app";
+// Use env var with fallback to production URL
+const baseUrl = process.env.NEXT_PUBLIC_ASSET_PREFIX || "https://kontentino-gpt-landing-waitlist-production.up.railway.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
