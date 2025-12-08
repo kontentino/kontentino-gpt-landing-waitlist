@@ -8,7 +8,7 @@ import JoinWaitlistDialog from "@/components/join-waitlist-dialog";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || '';
+const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || "";
 
 interface CTAProps {
   email: string;
@@ -53,11 +53,11 @@ export default function CTA({
       <div className="flex flex-col justify-center gap-6">
         <div>
           <h1 className="text-balance text-center font-serif text-4xl font-bold tracking-tight text-primary sm:text-5xl lg:text-left lg:text-6xl">
-            Your content calendar. Built in ChatGPT. Published in clicks.
+            Your social media calendar now lives inside ChatGPT
           </h1>
           <p className="mt-4 text-balance text-center text-xl font-medium text-primary sm:text-2xl lg:text-left">
-            Plan a month of content in one conversation. No copy-paste, no
-            switching tools, no chaos.
+            Plan a month of content in one conversation. Ready to approve,
+            export, and schedule.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export default function CTA({
                 Icon={FaArrowRightLong}
                 iconPlacement="right"
                 size="lg"
-                className="bg-gradient-to-r from-primary to-cta px-8 py-6 text-lg text-white hover:shadow-lg hover:shadow-primary/30 transition-all">
+                className="bg-gradient-to-r from-primary to-cta px-8 py-6 text-lg text-white transition-all hover:shadow-lg hover:shadow-primary/30">
                 Join Wave 1 Beta
               </EnhancedButton>
             }
@@ -129,16 +129,14 @@ export default function CTA({
       <div className="flex w-full flex-col justify-center gap-4">
         {/* Image/GIF showcase with tilt effect */}
         <div
-          className="flex w-full items-center justify-center relative"
-          style={{ perspective: "1000px" }}
-        >
+          className="relative flex w-full items-center justify-center"
+          style={{ perspective: "1000px" }}>
           {/* CSS animation wrapper - always running, captures mouse events */}
           <div
             className="w-full animate-[gentle-float_6s_ease-in-out_infinite]"
             style={{ transformStyle: "preserve-3d" }}
             onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-          >
+            onMouseLeave={handleMouseLeave}>
             {/* Mouse hover motion wrapper */}
             <motion.div
               className="w-full"
@@ -156,13 +154,17 @@ export default function CTA({
               }}>
               {/* Glowing animated background */}
               <div className="absolute inset-0 -z-10">
-                <div className="absolute -top-10 -left-10 w-80 h-80 bg-primary/50 rounded-full blur-3xl animate-pulse"></div>
-                <div className="absolute -bottom-10 -right-10 w-96 h-96 bg-secondary/50 rounded-full blur-3xl animate-pulse" style={{
-                  animationDelay: "1s",
-                }}></div>
-                <div className="absolute top-1/2 -right-20 w-64 h-64 bg-secondary-light/40 rounded-full blur-3xl animate-pulse" style={{
-                  animationDelay: "2s",
-                }}></div>
+                <div className="absolute -left-10 -top-10 h-80 w-80 animate-pulse rounded-full bg-primary/50 blur-3xl"></div>
+                <div
+                  className="absolute -bottom-10 -right-10 h-96 w-96 animate-pulse rounded-full bg-secondary/50 blur-3xl"
+                  style={{
+                    animationDelay: "1s",
+                  }}></div>
+                <div
+                  className="absolute -right-20 top-1/2 h-64 w-64 animate-pulse rounded-full bg-secondary-light/40 blur-3xl"
+                  style={{
+                    animationDelay: "2s",
+                  }}></div>
               </div>
 
               <div
@@ -209,8 +211,8 @@ export default function CTA({
         {/* Description text */}
         <div className="mt-4">
           <p className="text-pretty text-center text-base leading-relaxed text-primary/90 sm:text-lg">
-            The first ChatGPT integration that turns ideas into a visual
-            calendar - ready to approve, export, and schedule.
+            Turn messy threads into a visual calendar. No copy-paste, no
+            switching tools, no chaos.
           </p>
         </div>
       </div>
