@@ -106,7 +106,7 @@ export default function ShowcasePage() {
                   playsInline
                   className="w-full aspect-video bg-black"
                 >
-                  <source src={`${assetPrefix}/chatgpt/showcase/ios-demo.mov`} type="video/quicktime" />
+                  <source src={`${assetPrefix}/chatgpt/showcase/ios-demo.mp4`} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -142,7 +142,7 @@ export default function ShowcasePage() {
                   playsInline
                   className="w-full aspect-video bg-black"
                 >
-                  <source src={`${assetPrefix}/chatgpt/showcase/android-demo.mov`} type="video/quicktime" />
+                  <source src={`${assetPrefix}/chatgpt/showcase/android.mp4`} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
