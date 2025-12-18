@@ -75,7 +75,7 @@ export default function ShowcasePage() {
               </div>
 
               <div className="text-sm text-muted-foreground space-y-2">
-                <p className="font-medium text-foreground">What you'll see in this video:</p>
+                <p className="font-medium text-foreground">What you&apos;ll see in this video:</p>
                 <ul className="list-disc list-inside space-y-1">
                   <li>Creating a content calendar from natural language prompts</li>
                   <li>10+ posts organized by date and platform</li>
