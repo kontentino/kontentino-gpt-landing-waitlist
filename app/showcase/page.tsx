@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   robots: 'noindex, nofollow', // Not for public indexing - for reviewers only
 };
 
+const assetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX || '';
+
 export default function ShowcasePage() {
   return (
     <div className="min-h-screen bg-background">
@@ -67,9 +69,8 @@ export default function ShowcasePage() {
                   controls
                   playsInline
                   className="w-full aspect-video bg-black"
-                  poster="/chatgpt/showcase/desktop-poster.jpg"
                 >
-                  <source src="/chatgpt/showcase/desktop-demo.mp4" type="video/mp4" />
+                  <source src={`${assetPrefix}/chatgpt/showcase/desktop-demo.mp4`} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -104,10 +105,8 @@ export default function ShowcasePage() {
                   controls
                   playsInline
                   className="w-full aspect-video bg-black"
-                  poster="/chatgpt/showcase/ios-poster.jpg"
                 >
-                  <source src="/chatgpt/showcase/ios-demo.mp4" type="video/mp4" />
-                  <source src="/chatgpt/showcase/ios-demo.mov" type="video/quicktime" />
+                  <source src={`${assetPrefix}/chatgpt/showcase/ios-demo.mov`} type="video/quicktime" />
                   Your browser does not support the video tag.
                 </video>
               </div>
@@ -142,10 +141,8 @@ export default function ShowcasePage() {
                   controls
                   playsInline
                   className="w-full aspect-video bg-black"
-                  poster="/chatgpt/showcase/android-poster.jpg"
                 >
-                  <source src="/chatgpt/showcase/android-demo.mp4" type="video/mp4" />
-                  <source src="/chatgpt/showcase/android-demo.mov" type="video/quicktime" />
+                  <source src={`${assetPrefix}/chatgpt/showcase/android-demo.mov`} type="video/quicktime" />
                   Your browser does not support the video tag.
                 </video>
               </div>
