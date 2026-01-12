@@ -85,7 +85,7 @@ export default function EarlyJoinSection({
                   <div>
                     <h4 className="mb-1 font-semibold text-foreground">Shape the product</h4>
                     <p className="text-base text-muted-foreground">
-                      Be <span className="font-semibold text-foreground">first to access</span> the ChatGPT integration months before it launches in Europe. Your feedback directly influences features before public launch
+                      Be <span className="font-semibold text-foreground">first to access</span> the ChatGPT integration months before public launch. Your feedback directly influences features before wide release
                     </p>
                   </div>
                 </div>

@@ -172,7 +172,7 @@ export default function AboutSection() {
             <CheckCircle2 className="mt-1 h-6 w-6 flex-shrink-0 text-primary" />
             <div>
               <h4 className="mb-1 font-semibold text-foreground">Early access inside ChatGPT</h4>
-              <p className="text-sm text-muted-foreground">Use Social Media Planner inside ChatGPT — long before any other apps launch in Europe.</p>
+              <p className="text-sm text-muted-foreground">Use Social Media Planner inside ChatGPT — long before public launch.</p>
             </div>
           </div>
 
